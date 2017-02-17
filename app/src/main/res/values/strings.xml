@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">PearVideo</string>
+    <string name="app_name">Pear&#160;Video</string>
+    <string name="app_start_cn">青&#160;梨&#160;视&#160;频</string>
+    <string name="app_start_enfirst">Green</string>
+    <string name="app_start_encenter">Pear</string>
+    <string name="app_start_enlast">Video</string>
 </resources>
