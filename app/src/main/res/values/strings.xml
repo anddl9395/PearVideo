@@ -4,4 +4,8 @@
     <string name="app_start_enfirst">Green</string>
     <string name="app_start_encenter">Pear</string>
     <string name="app_start_enlast">Video</string>
+    <string name="app_action_title">兴趣</string>
+    <string name="app_action_right">偏好选择</string>
+    <string name="app_frush">正在刷新...</string>
+    <string name="app_more">正在加载更多...</string>
 </resources>
