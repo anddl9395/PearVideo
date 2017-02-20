@@ -4,4 +4,19 @@
     <string name="app_start_enfirst">Green</string>
     <string name="app_start_encenter">Pear</string>
     <string name="app_start_enlast">Video</string>
+    <string name="app_mine_myNickname">登录/注册</string>
+    <string name="app_mine_myCollection">我的收藏</string>
+    <string name="app_mine_mySubscription">我的订阅</string>
+    <string name="app_mine_browsingHistory">浏览历史</string>
+    <string name="app_mine_videoRebellion">视频报料</string>
+    <string name="app_mine_myMessage">我的消息</string>
+    <string name="app_mine_myInterest">我的兴趣</string>
+    <string name="app_mine_changePassword">修改密码</string>
+    <string name="app_mine_quit">退出登录</string>
+    <string name="app_login_register">注册</string>
+    <string name="app_login_login">登录</string>
+    <string name="app_login_phoneoremail">请输入手机/邮箱</string>
+    <string name="app_login_password">请输入密码</string>
+    <string name="app_login_forgetpassword">忘记密码?</string>
+
 </resources>
