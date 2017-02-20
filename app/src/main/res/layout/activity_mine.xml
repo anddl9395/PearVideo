@@ -20,13 +20,14 @@
             android:id="@+id/myIcon"
             app:border_width="0.5dp"
             app:border_color="#ccc"
+            android:layout_marginLeft="-50dp"
             android:src="@mipmap/ic_launcher"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/myNickName"
             android:textColor="#000"
-            android:text="张小凯"
+            android:text="@string/app_mine_myNickname"
             android:textSize="40dp"
             android:layout_gravity="center"/>
     </LinearLayout>
@@ -39,9 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000"
-            android:text="我的收藏"
+            android:text="@string/app_mine_myCollection"
             android:id="@+id/myCollection"
-            android:onClick="mineClick"
             android:textSize="20dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -57,9 +57,9 @@
             android:gravity="center"
             android:textSize="20dp"
             android:textColor="#000"
-            android:text="我的订阅"
+            android:text="@string/app_mine_mySubscription"
             android:id="@+id/mySubscription"
-            android:onClick="mineClick"/>
+            />
 
             />
     </LinearLayout>
@@ -72,9 +72,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="浏览历史"
+            android:text="@string/app_mine_browsingHistory"
             android:id="@+id/browsingHistory"
-            android:onClick="mineClick"
             android:textSize="15dp"
             android:textColor="#000"
             />
@@ -82,15 +81,14 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="10dp"
-            android:background="#000"
+            android:background="#ccc"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="视频报料"
+            android:text="@string/app_mine_videoRebellion"
             android:id="@+id/videoRebellion"
-            android:onClick="mineClick"
             android:textSize="15dp"
             android:textColor="#000"
             />
@@ -98,16 +96,15 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="10dp"
-            android:background="#000"
+            android:background="#ccc"
             />
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="我的消息"
+            android:text="@string/app_mine_myMessage"
             android:id="@+id/myMessage"
-            android:onClick="mineClick"
             android:textSize="15dp"
             android:textColor="#000"
             />
@@ -115,15 +112,14 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="10dp"
-            android:background="#000"
+            android:background="#ccc"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="我的兴趣"
+            android:text="@string/app_mine_myInterest"
             android:id="@+id/myInterest"
-            android:onClick="mineClick"
             android:textSize="15dp"
             android:textColor="#000"
             />
@@ -131,15 +127,14 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="10dp"
-            android:background="#000"
+            android:background="#ccc"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="修改密码"
+            android:text="@string/app_mine_changePassword"
             android:id="@+id/changePassword"
-            android:onClick="mineClick"
             android:textSize="15dp"
             android:textColor="#000"
             />
@@ -147,15 +142,14 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="10dp"
-            android:background="#000"
+            android:background="#ccc"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="退出登录"
+            android:text="@string/app_mine_quit"
             android:id="@+id/quit"
-            android:onClick="mineClick"
             android:textSize="15dp"
             android:textColor="#000"
             />
@@ -163,7 +157,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="10dp"
-            android:background="#000"
+            android:background="#ccc"
             />
     </LinearLayout>
 
