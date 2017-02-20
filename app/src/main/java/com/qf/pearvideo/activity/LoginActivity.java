@@ -1,7 +1,9 @@
 package com.qf.pearvideo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +19,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     ImageView passwordNoSee;//密码不可见的图片
     TextView forgetPassword;//忘记密码
     TextView loginLogin;//登录界面的登录
+    boolean flag = false;//密文输入默认为不可见的图片
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +31,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findView();
         setListener();
     }
-
+    //监听
     private void setListener() {
-
+        backwards.setOnClickListener(this);
+        loginRegister.setOnClickListener(this);
+        passwordNoSee.setOnClickListener(this);
+        forgetPassword.setOnClickListener(this);
+        loginLogin.setOnClickListener(this);
     }
 
     //找控件
@@ -43,21 +50,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         forgetPassword = (TextView) findViewById(R.id.forgetPassword);
         loginLogin = (TextView) findViewById(R.id.loginLogin);
     }
-
+    //点击事件的处理
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.backwards:
+            case R.id.backwards://后退
                 finish();
                 break;
-            case R.id.loginRegister:
+            case R.id.loginRegister://进入注册页面
+                EnterToRegister();
                 break;
-            case R.id.passwordNoSee:
+            case R.id.passwordNoSee://点击切换密文可见
+                SwitchPicture();
                 break;
-            case R.id.forgetPassword:
+            case R.id.forgetPassword://点击跳到忘记密码页面
                 break;
-            case R.id.loginLogin:
+            case R.id.loginLogin://登录
                 break;
+        }
+    }
+    //跳转到注册界面
+    private void EnterToRegister() {
+        Intent intent = new Intent(this,RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    //点击切换图片
+    private void SwitchPicture() {
+        if(flag){
+            passwordNoSee.setImageResource(R.drawable.icon_browse);
+            enterPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);//设置成密文可见
+            flag=false;
+        }else {
+            passwordNoSee.setImageResource(R.drawable.icon_passwordnosee);
+            enterPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);//设置成密文不可见
+            flag = true;
         }
     }
 }
