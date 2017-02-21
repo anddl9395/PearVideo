@@ -20,19 +20,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <HorizontalScrollView
-                    android:padding="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="250dp">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/index_other_recycle_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:id="@+id/index_other_titleLin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                </android.support.v7.widget.RecyclerView>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -43,7 +36,7 @@
                     android:gravity="center"
                     />
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/index_other_recycle"
+                    android:id="@+id/index_other_recycle_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
