@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.qf.pearvideo.R;
 
+
 public class SubscriptionActivity extends AppCompatActivity {
     private TextView title;//actionbar上的标题
     private TextView right;//actionbar上的
