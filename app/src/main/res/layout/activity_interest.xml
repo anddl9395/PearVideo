@@ -7,17 +7,19 @@
     android:background="#fff"
     tools:context="com.qf.pearvideo.activity.InterestActivity">
 
-    <fragment
-        android:id="@+id/action_interset"
-        android:name="com.qf.pearvideo.fragment.FragmentAction"
+    <include
+        android:id="@+id/interset_title"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
+        layout="@layout/action_title"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/interest_mFrush"
         />
     <LinearLayout
         android:id="@+id/interest_mFrush"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/action_interset"
+        android:layout_below="@+id/interset_title"
         android:orientation="horizontal"
         android:padding="10dp"
         android:background="#fff"

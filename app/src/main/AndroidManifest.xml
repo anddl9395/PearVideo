@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.SubscriptionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +18,8 @@
         <activity android:name=".activity.MineActivity" />
         <activity android:name=".activity.InterestActivity" />
         <activity android:name=".activity.StartActivity" />
-        <!-- <activity android:name=".activity.LoginActivity"/> -->
-        <activity android:name=".activity.SubscriptionActivity"></activity>
+        <activity android:name=".activity.LoginActivity"/>
+        <!--<activity android:name=".activity.SubscriptionActivity"/>-->
     </application>
 
 </manifest>
