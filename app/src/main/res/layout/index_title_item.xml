@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/index_title_item_img"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/index_title_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/index_title_item_img"
+        android:text="标题!标题!"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="#000"
+        />
+    <TextView
+        android:id="@+id/index_title_item_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:padding="2dp"
+        android:layout_below="@+id/index_title_item_tv"
+        android:background="@drawable/index_button_shape"
+        android:text="首播"
+        android:textColor="@color/colorYellow"
+        android:gravity="center"
+        android:textSize="13sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@+id/index_title_item_tag"
+        android:layout_alignBaseline="@id/index_title_item_tag"
+        android:layout_marginLeft="3dp"
+        android:text="水煮鱼 | 00'46''"
+        android:textColor="#858585"
+        />
+</RelativeLayout>

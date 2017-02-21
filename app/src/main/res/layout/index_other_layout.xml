@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/index_other_SWL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="1dp">
+
+        <com.qf.pearvideo.view.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp">
+
+                    <LinearLayout
+                        android:id="@+id/index_other_titleLin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/index_other_new"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/index_other_recycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </com.qf.pearvideo.view.MyScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

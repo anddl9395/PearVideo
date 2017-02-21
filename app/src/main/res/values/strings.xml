@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PearVideo</string>
+    <string name="index_sort">分类排序</string>
+    <string name="index_other_new">最新</string>
 </resources>
