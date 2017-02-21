@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context="com.qf.pearvideo.activity.SubscriptionActivity">
-
-    <fragment
+    <include
         android:id="@+id/subscription_title"
-        android:name="com.qf.pearvideo.fragment.FragmentAction"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        />
+        android:layout_height="50dp"
+        layout="@layout/action_title"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/subscription_mFrush" />
     <LinearLayout
         android:id="@+id/subscription_mFrush"
         android:layout_width="match_parent"
@@ -36,6 +36,7 @@
         android:id="@+id/subscription_mSwipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/subscription_mFrush"
         >
         <FrameLayout
             android:layout_width="match_parent"
@@ -46,43 +47,96 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 >
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="#fff"
-                    android:gravity="center"
                     >
                     <TextView
+                        android:id="@+id/subscription_skip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
                         android:textColor="#3e3e3e"
                         android:textSize="15sp"
                         android:text="@string/app_subscription_top"
+                        android:layout_centerHorizontal="true"
                         />
-                </LinearLayout>
-                <LinearLayout
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/subscription_skip"
+                        android:layout_marginTop="30dp"
+                        >
+                        <com.qf.pearvideo.view.CircleImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/icon_circle"
+                            android:layout_gravity="center"
+                            />
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/icon_add"
+                            android:layout_gravity="center"
+                            />
+                    </FrameLayout>
+                </RelativeLayout>
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="#E7E7E7"
-                    android:gravity="center_horizontal"
                     >
                     <TextView
+                        android:id="@+id/lanmu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_subscription_bottom"
                         android:textSize="18sp"
                         android:textColor="#000"
-                        android:layout_marginTop="80dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_centerHorizontal="true"
                         />
                     <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/lanmu"
+                        android:layout_marginBottom="30dp"
+                        android:layout_marginTop="30dp"
+                        android:scrollbars="none"
                         >
-
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            >
+                            <FrameLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/paddings"
+                                >
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="40dp"
+                                    android:src="@drawable/icon_add"
+                                    android:layout_gravity="center_horizontal"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="更多栏目"
+                                    android:textColor="#3e3e3e"
+                                    android:textSize="15sp"
+                                    android:layout_gravity="center"
+                                    />
+                            </FrameLayout>
+                        </LinearLayout>
                     </HorizontalScrollView>
-                </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
         </FrameLayout>
     </android.support.v4.widget.SwipeRefreshLayout>
