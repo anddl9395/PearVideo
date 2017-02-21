@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/registerBackwards"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_back"/>
+        <TextView
+            android:id="@+id/registerLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ccc"
+            android:textSize="18dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/app_login_login"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="30dp"
+        android:text="@string/app_login_register"/>
+
+    <EditText
+        android:id="@+id/registerEnterMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:hint="@string/app_login_phoneoremail"
+        android:textColorHint="#ccc"
+        android:textColor="@color/colorBlack"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/registerEnterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:hint="@string/app_login_password"
+            android:inputType="textPassword"
+            android:textColorHint="#ccc"
+            android:textColor="@color/colorBlack"
+            />
+        <Button
+            android:id="@+id/getInvitationCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:textColor="#ccc"
+            android:background="@color/colorWhite"
+            android:text="获取邀请码"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/nextStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="45dp"
+        android:text="下一步"
+        android:textSize="20dp"
+        android:textColor="#ccc"/>
+
+
+
+</LinearLayout>
