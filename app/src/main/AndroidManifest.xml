@@ -19,7 +19,11 @@
         <activity android:name=".activity.InterestActivity" />
         <activity android:name=".activity.StartActivity" />
         <!-- <activity android:name=".activity.LoginActivity"/> -->
-        <activity android:name=".activity.SubscriptionActivity"></activity>
+        <activity android:name=".activity.SubscriptionActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.ChangePwdActivity" />
+        <activity android:name=".activity.ForgetPwdActivity" />
+        <activity android:name=".activity.BrowsingHistoryActivity"></activity>
     </application>
 
 </manifest>
