@@ -1,12 +1,13 @@
 package com.qf.pearvideo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.widget.TextView;
 
 import com.qf.pearvideo.R;
 
-public class SubscriptionActivity extends AppCompatActivity {
+
+public class SubscriptionActivity extends FragmentActivity{
     private TextView title;//actionbar上的标题
     private TextView right;//actionbar上的
 
@@ -36,7 +37,6 @@ public class SubscriptionActivity extends AppCompatActivity {
      */
     private void setProperty(){
         title.setText("订阅");
-        right.setText("+");
-        right.setTextSize(25);
+        right.setText("更多");
     }
 }

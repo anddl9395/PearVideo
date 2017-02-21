@@ -1,7 +1,7 @@
 package com.qf.pearvideo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 
 import com.qf.pearvideo.R;
 
@@ -10,7 +10,7 @@ import com.qf.pearvideo.R;
  * 2017/2/20
  * dengliang
  */
-public class InterestActivity extends AppCompatActivity {
+public class InterestActivity extends FragmentActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
