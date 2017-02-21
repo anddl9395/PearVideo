@@ -1,13 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context="com.qf.pearvideo.activity.StartActivity">
 
-    <include
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        layout="@layout/index_layout"
-        />
-</RelativeLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/icon_pearlog"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        >
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           >
+           <TextView
+               android:id="@+id/app_start_cn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/app_start_cn"
+               android:textSize="30sp"
+               android:textColor="#000"
+               android:layout_centerHorizontal="true"
+               />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#ccc"
+               android:text="@string/app_start_enfirst"
+               android:textSize="18sp"
+               android:layout_below="@+id/app_start_cn"
+               android:layout_alignLeft="@id/app_start_cn"
+               />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#ccc"
+               android:text="@string/app_start_encenter"
+               android:textSize="18sp"
+               android:layout_below="@+id/app_start_cn"
+               android:layout_centerHorizontal="true"
+               />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#ccc"
+               android:text="@string/app_start_enlast"
+               android:textSize="18sp"
+               android:layout_below="@+id/app_start_cn"
+               android:layout_alignRight="@+id/app_start_cn"
+               android:layout_centerHorizontal="true"
+               />
+           <ImageView
+               android:layout_width="150dp"
+               android:layout_height="150dp"
+               android:layout_below="@id/app_start_cn"
+               android:layout_marginTop="50dp"
+               android:layout_centerInParent="true"
+               android:src="@drawable/icon_video"
+               />
+       </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
