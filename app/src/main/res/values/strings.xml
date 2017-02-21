@@ -20,5 +20,9 @@
     <string name="app_login_phoneoremail">请输入手机/邮箱</string>
     <string name="app_login_password">请输入密码</string>
     <string name="app_login_forgetpassword">忘记密码?</string>
+    <string name="app_subscription_top">没订阅内容，去看看有什么好栏目</string>
+    <string name="app_subscription_bottom">热门栏目</string>
+    <string name="app_action_title">兴趣</string>
+    <string name="app_action_right">偏好选择</string>
 
 </resources>

@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         />
     <LinearLayout
-        android:id="@+id/mFrush"
+        android:id="@+id/interest_mFrush"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/action_interset"
@@ -30,14 +30,13 @@
             android:text="@string/app_frush"
             android:textColor="#ccc"
             android:textSize="15sp"
-            android:layout_marginLeft="5dp"
             />
     </LinearLayout>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/mSwipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/mFrush"
+        android:layout_below="@+id/interest_mFrush"
         >
         <ListView
             android:id="@+id/mListView"
