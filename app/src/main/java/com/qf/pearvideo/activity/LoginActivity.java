@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 SwitchPicture();
                 break;
             case R.id.forgetPassword://点击跳到忘记密码页面
+                startActivity(new Intent(this,ForgetPwdActivity.class));
                 break;
             case R.id.loginLogin://登录
                 break;
