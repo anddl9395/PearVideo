@@ -51,10 +51,10 @@ public class ChangePwdActivity extends AppCompatActivity implements View.OnClick
             case R.id.changePasswordBackwards://点击返回
                 finish();
                 break;
-            case R.id.passwordNotSee:
+            case R.id.passwordNotSee://切换密文图片
                 SwitchPictureOld();
                 break;
-            case R.id.passwordNotSeeX:
+            case R.id.passwordNotSeeX://切换密文图片
                 SwitchPictureNew();
                 break;
             case R.id.finish://完成

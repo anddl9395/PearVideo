@@ -1,7 +1,7 @@
 package com.qf.pearvideo.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.qf.pearvideo.R;
 
@@ -30,4 +30,5 @@ public class StartActivity extends AppCompatActivity {
             }
         }).start();
     }
+
 }
