@@ -80,4 +80,16 @@ public class PhoneInfo implements Serializable{
     public String getPlatformTypeName() {
         return "X-Platform-Type";
     }
+
+    @Override
+    public String toString() {
+        return "PhoneInfo{" +
+                "id='" + id + '\'' +
+                ", num='" + num + '\'' +
+                ", platformVersion='" + platformVersion + '\'' +
+                ", clientVersion='" + clientVersion + '\'' +
+                ", clientAgent='" + clientAgent + '\'' +
+                ", platformType='" + platformType + '\'' +
+                '}';
+    }
 }

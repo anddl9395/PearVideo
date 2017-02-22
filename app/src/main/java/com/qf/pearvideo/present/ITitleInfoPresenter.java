@@ -8,5 +8,5 @@ import com.qf.pearvideo.bean.PhoneInfo;
  */
 
 public interface ITitleInfoPresenter {
-    public void getTitleInfo(String url, PhoneInfo phoneInfo);
+    public void getTitleInfo(String url);
 }

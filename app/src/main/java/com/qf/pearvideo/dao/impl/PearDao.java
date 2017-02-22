@@ -8,7 +8,11 @@ import com.qf.pearvideo.dao.IPearDao;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
+import org.xutils.http.cookie.DbCookieStore;
 import org.xutils.x;
+
+import java.net.HttpCookie;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/21.
@@ -31,7 +35,14 @@ public class PearDao implements IPearDao {
             public void onSuccess(String result) {
                 if (result != null){
                     Log.e("=======", result);
-                    callBack.doResult(result);
+                    callBack.doResult(result, 1);//将Json字符串返回
+                    DbCookieStore instance = DbCookieStore.INSTANCE;
+                    List<HttpCookie> cookies = instance.getCookies();
+                    StringBuffer stringBuffer = new StringBuffer();
+                    for(HttpCookie cookie : cookies){
+                        stringBuffer.append(cookie.getName()+":"+cookie.getValue()+";");
+                    }
+                    callBack.doResult(stringBuffer.toString(), 2);
                 }
             }
 
