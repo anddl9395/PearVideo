@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.qf.pearvideo.R;
+import com.qf.pearvideo.present.ITitleInfoPresenter;
+import com.qf.pearvideo.present.impl.TitleInfoPresenter;
 
 /**
  * 启动时的页面

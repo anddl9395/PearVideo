@@ -5,5 +5,5 @@ package com.qf.pearvideo.callback;
  */
 
 public interface PearStringCallBack {
-    public void doResult(String resultStr);
+    public void doResult(String resultStr, int tag);
 }

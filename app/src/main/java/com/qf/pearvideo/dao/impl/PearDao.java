@@ -35,12 +35,14 @@ public class PearDao implements IPearDao {
             public void onSuccess(String result) {
                 if (result != null){
                     Log.e("=======", result);
-                    callBack.doResult(result);
+                    callBack.doResult(result, 1);//将Json字符串返回
                     DbCookieStore instance = DbCookieStore.INSTANCE;
                     List<HttpCookie> cookies = instance.getCookies();
+                    StringBuffer stringBuffer = new StringBuffer();
                     for(HttpCookie cookie : cookies){
-                        Log.i("======"+cookie.getName(), cookie.getValue());
+                        stringBuffer.append(cookie.getName()+":"+cookie.getValue()+";");
                     }
+                    callBack.doResult(stringBuffer.toString(), 2);
                 }
             }
 
