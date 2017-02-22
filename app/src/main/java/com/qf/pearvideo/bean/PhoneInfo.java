@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 public class PhoneInfo implements Serializable{
 
-    private String id;                      //对应X-Client-ID
-    private String num;                     //对应X-Serial-Num
-    private String platformVersion;         //对应X-Platform-Version
+    private String id;                      //对应X-Client-ID 手机的id
+    private String num;                     //对应X-Serial-Num 当前时间的秒数
+    private String platformVersion;         //对应X-Platform-Version 用户手机的版本
     private String clientVersion = "2.0.1"; //对应X-Client-Version
-    private String clientAgent;             //对应X-Client-Agent
+    private String clientAgent;             //对应X-Client-Agent 手机的型号代理
     private String platformType = "2";           //对应X-Platform-Type
 
     public PhoneInfo(){}
