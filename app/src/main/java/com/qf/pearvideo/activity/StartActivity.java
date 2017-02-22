@@ -1,11 +1,10 @@
 package com.qf.pearvideo.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.qf.pearvideo.R;
-import com.qf.pearvideo.present.ITitleInfoPresenter;
-import com.qf.pearvideo.present.impl.TitleInfoPresenter;
 
 /**
  * 启动时的页面
@@ -25,7 +24,8 @@ public class StartActivity extends AppCompatActivity {
                 try {
                     Thread.sleep(2000);
                     //跳转事件....
-
+                    Intent intent = new Intent(StartActivity.this,AllSortActivity.class);
+                    startActivity(intent);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

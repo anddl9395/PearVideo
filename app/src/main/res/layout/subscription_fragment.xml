@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context="com.qf.pearvideo.activity.SubscriptionActivity">
+   >
     <include
         android:id="@+id/subscription_title"
         android:layout_width="match_parent"
