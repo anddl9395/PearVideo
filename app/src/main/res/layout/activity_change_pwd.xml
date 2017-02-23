@@ -25,7 +25,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:textColor="@color/colorBlack"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:text="修改密码"/>
 
     <RelativeLayout
@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="45dp"
         android:text="完成"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="#ccc"/>
 
 

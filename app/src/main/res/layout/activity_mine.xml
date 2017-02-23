@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="60dp">
         <com.qf.pearvideo.view.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,11 +28,11 @@
             android:id="@+id/myNickName"
             android:textColor="#000"
             android:text="@string/app_mine_myNickname"
-            android:textSize="40dp"
+            android:textSize="25sp"
             android:layout_gravity="center"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal">
@@ -42,7 +42,7 @@
             android:textColor="#000"
             android:text="@string/app_mine_myCollection"
             android:id="@+id/myCollection"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:gravity="center"
             />
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="#000"
             android:text="@string/app_mine_mySubscription"
             android:id="@+id/mySubscription"
@@ -66,7 +66,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="35dp"
         android:orientation="vertical">
         <TextView
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:text="@string/app_mine_browsingHistory"
             android:id="@+id/browsingHistory"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="#000"
             />
         <TextView
@@ -86,10 +86,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="@string/app_mine_videoRebellion"
             android:id="@+id/videoRebellion"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="#000"
             />
         <TextView
@@ -102,10 +102,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="@string/app_mine_myMessage"
             android:id="@+id/myMessage"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="#000"
             />
         <TextView
@@ -117,10 +117,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="@string/app_mine_myInterest"
             android:id="@+id/myInterest"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="#000"
             />
         <TextView
@@ -132,10 +132,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="@string/app_mine_changePassword"
             android:id="@+id/changePassword"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="#000"
             />
         <TextView
@@ -147,10 +147,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="@string/app_mine_quit"
             android:id="@+id/quit"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="#000"
             />
         <TextView
