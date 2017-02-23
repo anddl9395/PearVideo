@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
+    android:id="@+id/activity_my_message"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff">
+    android:background="@color/colorWhite"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
         <ImageView
-            android:id="@+id/browsingHistoryBackwards"
+            android:id="@+id/myMessageBackwards"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/icon_back"/>
         <TextView
+            android:id="@+id/myMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="浏览历史"
             android:textColor="@color/colorBlack"
-            android:textSize="20sp"/>
-        <TextView
-            android:id="@+id/management"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="管理"
-            android:textColor="#656565"
-            android:layout_marginRight="10dp"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
             android:layout_centerInParent="true"
-            android:layout_alignParentRight="true"
-            android:textSize="15sp"/>
-
+            android:text="我的消息"/>
     </RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/messageTab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 
 </LinearLayout>
