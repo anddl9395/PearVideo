@@ -28,6 +28,9 @@
     <string name="index_other_new">最新</string>
     <string name="app_register_invitation">获取邀请码</string>
     <string name="app_register_nextStep">下一步</string>
-
+    <string name="sort_index">首页</string>
+    <string name="sort_interest">兴趣</string>
+    <string name="sort_sub">订阅</string>
+    <string name="sort_me">我</string>
 
 </resources>

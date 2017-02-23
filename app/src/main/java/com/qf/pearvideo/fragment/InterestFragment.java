@@ -10,18 +10,16 @@ import android.view.ViewGroup;
 import com.qf.pearvideo.R;
 
 /**
- * Created by Administrator on 2017/2/17.
+ * 兴趣页面
+ * Created by Administrator on 2017/2/22 0022.
  */
 
-public class IndexFragment extends Fragment implements  IIndexFragment{
-
+public class InterestFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.index_layout,null);
+        View view = inflater.inflate(R.layout.interest_fragment,null);
         return view;
     }
-
-
 }
