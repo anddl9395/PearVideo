@@ -35,6 +35,7 @@
             style="@style/rbstyle"
             android:text="@string/sort_index"
             android:drawableTop="@drawable/rb_index_selector"
+
             />
         <RadioButton
             android:id="@+id/rb_interest"
