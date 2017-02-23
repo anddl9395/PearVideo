@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by Administrator on 2017/2/21.
+ * 手机信息实体
  */
 
 public class PhoneInfo implements Serializable{

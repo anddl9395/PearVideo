@@ -21,18 +21,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
                 android:orientation="horizontal">
                 <RadioGroup
                     android:id="@+id/index_title_rg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="头条"
+                        android:checked="true"
+                        android:button="@null"
+                        android:textColor="@color/index_radiobutton"
+                        />
                 </RadioGroup>
                 <Button
                     android:background="@drawable/index_button_shape"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="@color/colorYellow"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
                     android:padding="3dp"
                     android:text="@string/index_sort"/>
@@ -52,9 +62,10 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/index_vp"
-        android:layout_below="@+id/index_title_lin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
     </android.support.v4.view.ViewPager>
 </RelativeLayout>
