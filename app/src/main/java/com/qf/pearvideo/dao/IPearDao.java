@@ -9,4 +9,6 @@ import com.qf.pearvideo.callback.PearStringCallBack;
 
 public interface IPearDao {
     public void getTitleInfo(String url, PhoneInfo phoneInfo, PearStringCallBack callBack);
+
+    public void getIndexMainInfo(String url, String cookie, PearStringCallBack callBack);
 }

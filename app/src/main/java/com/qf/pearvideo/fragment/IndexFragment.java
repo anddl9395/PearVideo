@@ -17,6 +17,7 @@ import com.qf.pearvideo.R;
 import com.qf.pearvideo.bean.Category;
 import com.qf.pearvideo.present.ITitleInfoPresenter;
 import com.qf.pearvideo.present.impl.TitleInfoPresenter;
+import com.qf.pearvideo.utils.ConnectUrl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,7 @@ public class IndexFragment extends Fragment implements  IIndexFragment, RadioGro
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //进行网络请求
+        mITitleInfoPresenter.getTitleInfo(ConnectUrl.topUrl);
     }
 
     @Nullable
