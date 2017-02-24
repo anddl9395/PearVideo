@@ -1,6 +1,7 @@
 package com.qf.pearvideo.dao;
 
 import com.qf.pearvideo.bean.PhoneInfo;
+import com.qf.pearvideo.callback.CallBack;
 import com.qf.pearvideo.callback.PearStringCallBack;
 
 /**
@@ -8,7 +9,8 @@ import com.qf.pearvideo.callback.PearStringCallBack;
  */
 
 public interface IPearDao {
+
     public void getTitleInfo(String url, PhoneInfo phoneInfo, PearStringCallBack callBack);
 
-    public void getIndexMainInfo(String url, String cookie, PearStringCallBack callBack);
+    public void getSystemMessage(String url, String cookie, CallBack mCallBack);
 }

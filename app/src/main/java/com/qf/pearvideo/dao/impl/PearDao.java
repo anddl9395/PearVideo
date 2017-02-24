@@ -3,6 +3,7 @@ package com.qf.pearvideo.dao.impl;
 import android.util.Log;
 
 import com.qf.pearvideo.bean.PhoneInfo;
+import com.qf.pearvideo.callback.CallBack;
 import com.qf.pearvideo.callback.PearStringCallBack;
 import com.qf.pearvideo.dao.IPearDao;
 
@@ -20,6 +21,12 @@ import java.util.List;
 
 public class PearDao implements IPearDao {
 
+    /**
+     * 首次加载
+     * @param url
+     * @param phoneInfo
+     * @param callBack
+     */
     @Override
     public void getTitleInfo(String url, PhoneInfo phoneInfo, final PearStringCallBack callBack) {
         RequestParams requestParams = new RequestParams(url);
@@ -61,20 +68,24 @@ public class PearDao implements IPearDao {
 
             }
         });
+
+
     }
 
+    /**
+     * 消息推送
+     * @param url
+     * @param mCallBack
+     */
     @Override
-    public void getIndexMainInfo(String url, String cookie, final PearStringCallBack callBack) {
-        RequestParams requestParams = new RequestParams(url);
-        requestParams.addHeader("Cookie", cookie);
+    public void getSystemMessage(String url, String cookie, final CallBack mCallBack) {
+        RequestParams mRequestParams = new RequestParams(url);
+        mRequestParams.addHeader("Cookie",cookie);
 
-        x.http().post(requestParams, new Callback.CommonCallback<String>() {
-
+        x.http().get(mRequestParams, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                if (result != null){
-                    callBack.doResult(result, 1);
-                }
+               mCallBack.getResult(result);
             }
 
             @Override
@@ -93,6 +104,4 @@ public class PearDao implements IPearDao {
             }
         });
     }
-
-
 }
