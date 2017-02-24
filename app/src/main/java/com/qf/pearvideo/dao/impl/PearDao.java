@@ -3,6 +3,7 @@ package com.qf.pearvideo.dao.impl;
 import android.util.Log;
 
 import com.qf.pearvideo.bean.PhoneInfo;
+import com.qf.pearvideo.callback.CallBack;
 import com.qf.pearvideo.callback.PearStringCallBack;
 import com.qf.pearvideo.dao.IPearDao;
 
@@ -20,6 +21,12 @@ import java.util.List;
 
 public class PearDao implements IPearDao {
 
+    /**
+     * 首次加载
+     * @param url
+     * @param phoneInfo
+     * @param callBack
+     */
     @Override
     public void getTitleInfo(String url, PhoneInfo phoneInfo, final PearStringCallBack callBack) {
         RequestParams requestParams = new RequestParams(url);
@@ -63,5 +70,38 @@ public class PearDao implements IPearDao {
         });
 
 
+    }
+
+    /**
+     * 消息推送
+     * @param url
+     * @param mCallBack
+     */
+    @Override
+    public void getSystemMessage(String url, String cookie, final CallBack mCallBack) {
+        RequestParams mRequestParams = new RequestParams(url);
+        mRequestParams.addHeader("Cookie",cookie);
+
+        x.http().get(mRequestParams, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+               mCallBack.getResult(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 }
