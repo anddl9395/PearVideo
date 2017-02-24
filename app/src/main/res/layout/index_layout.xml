@@ -34,7 +34,7 @@
                         android:text="头条"
                         android:checked="true"
                         android:button="@null"
-                        android:textColor="@color/index_radiobutton"
+                        android:textColor="@color/index_rb"
                         />
                 </RadioGroup>
                 <Button
