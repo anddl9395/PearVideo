@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/23.
+ * 总模块实体类
  */
 
 public class Node implements Serializable{
