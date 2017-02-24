@@ -61,7 +61,5 @@ public class PearDao implements IPearDao {
 
             }
         });
-
-
     }
 }

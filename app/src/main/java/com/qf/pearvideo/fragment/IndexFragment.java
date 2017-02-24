@@ -88,7 +88,7 @@ public class IndexFragment extends Fragment implements  IIndexFragment, RadioGro
             //将RadioButton按钮样式隐藏
             radioButton.setButtonDrawable(android.R.color.transparent);
             //设置RadioButton颜色选择
-            ColorStateList csl =ContextCompat.getColorStateList(context, R.color.index_radiobutton);
+            ColorStateList csl = ContextCompat.getColorStateList(context, R.color.index_rb);
             radioButton.setTextColor(csl);
             //设置宽和高以及边距
             RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(40, 40);

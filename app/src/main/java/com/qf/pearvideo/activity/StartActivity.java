@@ -26,6 +26,7 @@ public class StartActivity extends AppCompatActivity {
                     //跳转事件....
                     Intent intent = new Intent(StartActivity.this,AllSortActivity.class);
                     startActivity(intent);
+                    finish();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
