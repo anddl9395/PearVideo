@@ -19,7 +19,12 @@ import java.util.List;
  */
 
 public class PearDao implements IPearDao {
-
+    /**
+     * 加载标题信息
+     * @param url
+     * @param phoneInfo
+     * @param callBack
+     */
     @Override
     public void getTitleInfo(String url, PhoneInfo phoneInfo, final PearStringCallBack callBack) {
         RequestParams requestParams = new RequestParams(url);
@@ -63,6 +68,12 @@ public class PearDao implements IPearDao {
         });
     }
 
+    /**
+     * 获取首页主要内容
+     * @param url
+     * @param cookie
+     * @param callBack
+     */
     @Override
     public void getIndexMainInfo(String url, String cookie, final PearStringCallBack callBack) {
         RequestParams requestParams = new RequestParams(url);
@@ -94,5 +105,37 @@ public class PearDao implements IPearDao {
         });
     }
 
+    /**
+     * 获取兴趣页面的信息
+     * @param url
+     * @param cookie
+     * @param callBack
+     */
+    @Override
+    public void getInterestInfo(String url, String cookie, PearStringCallBack callBack) {
+        RequestParams requestParams = new RequestParams(url);
+        requestParams.addHeader("Cookie",cookie);
 
+        x.http().get(requestParams, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
 }
