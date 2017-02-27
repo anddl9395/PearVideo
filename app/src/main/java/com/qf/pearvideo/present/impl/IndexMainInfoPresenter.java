@@ -28,6 +28,7 @@ public class IndexMainInfoPresenter implements IIndexMainInfoPresenter {
     private IIndexMainFragment mIIndexMainFragment;
     private SharedPreferences sp;
     private PearDao pearDao = new PearDao();
+    private int position;
 
     //返回的数据
     private PearStringCallBack callBack = new PearStringCallBack() {
@@ -91,6 +92,9 @@ public class IndexMainInfoPresenter implements IIndexMainInfoPresenter {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }else {
+                //文件下载成功
+                mIIndexMainFragment.getFileSuccess(resultStr,position);
             }
         }
     };
@@ -105,5 +109,11 @@ public class IndexMainInfoPresenter implements IIndexMainInfoPresenter {
         sp = context.getSharedPreferences("PearVideoCookie", Context.MODE_PRIVATE);
         String cookie = sp.getString("cookie","ERROR");
         pearDao.getIndexMainInfo(url, cookie, callBack);
+    }
+
+    @Override
+    public void getMainFile(String url, int position) {
+        pearDao.getIndexMainFile(url, callBack);
+        this.position = position;
     }
 }
