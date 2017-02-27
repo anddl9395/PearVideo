@@ -3,11 +3,11 @@ package com.qf.pearvideo.present.impl;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.qf.pearvideo.activity.IMyMessage;
 import com.qf.pearvideo.bean.SystemMessage;
 import com.qf.pearvideo.callback.CallBack;
 import com.qf.pearvideo.dao.IPearDao;
 import com.qf.pearvideo.dao.impl.PearDao;
+import com.qf.pearvideo.fragment.IPushMessageFragment;
 import com.qf.pearvideo.present.IMyMessagep;
 
 import org.json.JSONArray;
@@ -22,15 +22,15 @@ import java.util.List;
  */
 
 public class MyMessage implements IMyMessagep{
-    Context context;
-    IMyMessage mIMyMessage;
-    IPearDao mIPearDao = new PearDao();
-    List<SystemMessage> list = new ArrayList<>();
-    SharedPreferences sp;
+   private Context context;
+    private IPushMessageFragment mIPushMessageFragment;
+    private IPearDao mIPearDao = new PearDao();
+    private List<SystemMessage> list = new ArrayList<>();
+    private SharedPreferences sp;
 
-    public MyMessage(Context context,IMyMessage mIMyMessage){
+    public MyMessage(Context context,IPushMessageFragment mIPushMessageFragment){
         this.context = context;
-        this.mIMyMessage = mIMyMessage;
+        this.mIPushMessageFragment = mIPushMessageFragment;
     }
 
     CallBack mCallBack = new CallBack() {
@@ -55,12 +55,17 @@ public class MyMessage implements IMyMessagep{
 
                             list.add(mSystemMessage);
                         }
-                        mIMyMessage.successResult(list);
+                        mIPushMessageFragment.successInfo(list);
+                    }
+                    else {
+                        mIPushMessageFragment.failInfo();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
+
+
         }
     };
     @Override

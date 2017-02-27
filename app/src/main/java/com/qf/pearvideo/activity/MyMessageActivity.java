@@ -1,17 +1,14 @@
 package com.qf.pearvideo.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.qf.pearvideo.R;
-import com.qf.pearvideo.bean.SystemMessage;
-import com.qf.pearvideo.present.IMyMessagep;
-import com.qf.pearvideo.present.impl.MyMessage;
-import com.qf.pearvideo.utils.ConnectUrl;
+import com.qf.pearvideo.adapter.MyMessageAdapter;
+import com.qf.pearvideo.fragment.PushMessageFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +16,24 @@ import java.util.List;
 /**
  *
  */
-public class MyMessageActivity extends AppCompatActivity implements IMyMessage{
+public class MyMessageActivity extends FragmentActivity {
     private ViewPager mViewPager;
-    private TabLayout messageTab;
-    private List<String> titleList;
-    IMyMessagep mIMyMessagep;
-
+    private TabLayout messageTab;//
+    private List<String> titleList;//表格布局的内容集合
+    private List<Fragment> pageList = new ArrayList<>();
+    private MyMessageAdapter adapter;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_message);
         init();
-        mIMyMessagep = new MyMessage(this,this);
-        mIMyMessagep.getMyMessagep(ConnectUrl.messageUrl);
+        //initPager();
+        pageList.add(new PushMessageFragment());
+        pageList.add(new PushMessageFragment());
+
+        //设置适配器
+        adapter = new MyMessageAdapter(getSupportFragmentManager(), pageList,titleList);
+        mViewPager.setAdapter(adapter);
     }
 
     //实例化
@@ -41,6 +43,7 @@ public class MyMessageActivity extends AppCompatActivity implements IMyMessage{
         titleList.add("系统消息");
         titleList.add("推送消息");
         messageTab = (TabLayout) findViewById(R.id.messageTab);
+        mViewPager = (ViewPager) findViewById(R.id.mViewPager);
         //设置tab的模式
         messageTab.setTabMode(TabLayout.MODE_FIXED);
         //添加tab选项卡
@@ -51,8 +54,11 @@ public class MyMessageActivity extends AppCompatActivity implements IMyMessage{
         messageTab.setupWithViewPager(mViewPager);
     }
 
-    @Override
-    public void successResult(List<SystemMessage> list) {
-        Log.i("----",list.toString());
+
+    private void initPager(){
+        PushMessageFragment pushMessageFragment = null;
+        for (int i = 0; i <2 ; i++) {
+            pageList.add(new PushMessageFragment());
+        }
     }
 }

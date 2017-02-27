@@ -104,4 +104,32 @@ public class PearDao implements IPearDao {
             }
         });
     }
+
+    @Override
+    public void getIndexMainInfo(String url, String cookie, final PearStringCallBack callBack) {
+        RequestParams mRequestParams = new RequestParams(url);
+        mRequestParams.addHeader("Cookie",cookie);
+
+        x.http().get(mRequestParams, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                callBack.doResult(result,1);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
 }

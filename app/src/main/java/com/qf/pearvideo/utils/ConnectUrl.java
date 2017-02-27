@@ -11,4 +11,5 @@ public class ConnectUrl {
     public static String intestUrl = "http://app.pearvideo.com/clt/jsp/v2/getVodConts.jsp";//兴趣页面的地址
     public static String subcriptionUrl = "http://app.pearvideo.com/clt/jsp/v2/myOrderContList.jsp";//订阅页面的地址
     public static String indexOtherInfoUrl = "http://app.pearvideo.com/clt/jsp/v2/getCategoryConts.jsp";//首页具体模块的地址
+    public static String messageUrl="http://app.pearvideo.com/clt/jsp/v2/getSysMsgList.jsp";
 }
