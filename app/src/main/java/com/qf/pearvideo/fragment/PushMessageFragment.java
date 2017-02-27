@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.qf.pearvideo.R;
 import com.qf.pearvideo.adapter.MyMessageListViewAdapter;
@@ -30,7 +31,6 @@ public class PushMessageFragment extends Fragment implements IPushMessageFragmen
     Context context;
     MyMessageListViewAdapter adapter;
     List<SystemMessage> data = new ArrayList<>();
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -70,6 +70,6 @@ public class PushMessageFragment extends Fragment implements IPushMessageFragmen
 
     @Override
     public void failInfo() {
-
+        Toast.makeText(context,"没有获取到数据",Toast.LENGTH_LONG).show();
     }
 }

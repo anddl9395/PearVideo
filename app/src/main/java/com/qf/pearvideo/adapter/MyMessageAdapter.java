@@ -13,13 +13,11 @@ import java.util.List;
 public class MyMessageAdapter extends FragmentStatePagerAdapter {
     private List<Fragment> pageList;
     private List<String> titleList;
-
     public MyMessageAdapter(FragmentManager fm, List<Fragment> pageList, List<String> titleList) {
         super(fm);
         this.pageList = pageList;
         this.titleList = titleList;
     }
-
     @Override
     public Fragment getItem(int position) {
         return pageList.get(position);

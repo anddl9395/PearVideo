@@ -23,13 +23,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.StartActivity"/>
+        <activity android:name=".activity.StartActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.ChangePwdActivity" />
         <activity android:name=".activity.ForgetPwdActivity" />
         <activity android:name=".activity.BrowsingHistoryActivity" />
-        <activity android:name=".activity.AllSortActivity"/>
-        <!--<activity android:name=".activity.MyMessageActivity"/>-->
+        <activity android:name=".activity.AllSortActivity" />
+        <!-- <activity android:name=".activity.MyMessageActivity"/> -->
+        <activity android:name=".activity.SubscriptionManagementActivity"></activity>
     </application>
 
 </manifest>
