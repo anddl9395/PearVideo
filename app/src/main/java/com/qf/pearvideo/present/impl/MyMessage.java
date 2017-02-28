@@ -3,11 +3,11 @@ package com.qf.pearvideo.present.impl;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.qf.pearvideo.activity.IMyMessage;
 import com.qf.pearvideo.bean.SystemMessage;
 import com.qf.pearvideo.callback.CallBack;
 import com.qf.pearvideo.dao.IPearDao;
 import com.qf.pearvideo.dao.impl.PearDao;
+import com.qf.pearvideo.fragment.IPushMessageFragment;
 import com.qf.pearvideo.present.IMyMessagep;
 
 import org.json.JSONArray;
@@ -22,15 +22,15 @@ import java.util.List;
  */
 
 public class MyMessage implements IMyMessagep{
-    Context context;
-    IMyMessage mIMyMessage;
-    IPearDao mIPearDao = new PearDao();
-    List<SystemMessage> list = new ArrayList<>();
-    SharedPreferences sp;
+    private Context context;
+    private IPushMessageFragment mIPushMessageFragment;
+    private IPearDao mIPearDao = new PearDao();
+    private List<SystemMessage> list = new ArrayList<>();//集合
+    private SharedPreferences sp;
 
-    public MyMessage(Context context,IMyMessage mIMyMessage){
+    public MyMessage(Context context,IPushMessageFragment mIPushMessageFragment){
         this.context = context;
-        this.mIMyMessage = mIMyMessage;
+        this.mIPushMessageFragment = mIPushMessageFragment;
     }
 
     CallBack mCallBack = new CallBack() {
@@ -46,8 +46,7 @@ public class MyMessage implements IMyMessagep{
                         SystemMessage mSystemMessage = null;
                         for (int i = 0; i < len; i++) {
                             JSONObject mes = msgList.getJSONObject(i);
-
-                             mSystemMessage = new SystemMessage();
+                            mSystemMessage = new SystemMessage();
                             mSystemMessage.setID(mes.getString("id"));
                             mSystemMessage.setTitle(mes.getString("title"));
                             mSystemMessage.setDetail(mes.getString("detail"));
@@ -55,7 +54,10 @@ public class MyMessage implements IMyMessagep{
 
                             list.add(mSystemMessage);
                         }
-                        mIMyMessage.successResult(list);
+                        mIPushMessageFragment.successInfo(list);
+                    }
+                    else {
+                        mIPushMessageFragment.failInfo();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -65,9 +67,9 @@ public class MyMessage implements IMyMessagep{
     };
     @Override
     public void getMyMessagep(String url) {
-        //sp = context.getSharedPreferences("PearVideoCookie", Context.MODE_PRIVATE);
-        //String cookie = sp.getString("cookie","err");
-        String cookie = "PEAR_PLATFORM=2;PEAR_UUID=867931028815395;JSESSIONID=E7A03EDFE4438F466ED722E381FC35C1;PV_APP=srv-pv-prod-portal3;__ads_session=4XyFTnww3Qj/OG4uCQA=";
+        sp = context.getSharedPreferences("PearVideoCookie", Context.MODE_PRIVATE);
+        String cookie = sp.getString("cookie","err");
+        //String cookie = "PEAR_PLATFORM=2;PEAR_UUID=867931028815395;JSESSIONID=E7A03EDFE4438F466ED722E381FC35C1;PV_APP=srv-pv-prod-portal3;__ads_session=4XyFTnww3Qj/OG4uCQA=";
         mIPearDao.getSystemMessage(url,cookie,mCallBack);
     }
 }

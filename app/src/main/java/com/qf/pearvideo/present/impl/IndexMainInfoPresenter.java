@@ -9,7 +9,7 @@ import com.qf.pearvideo.bean.Node;
 import com.qf.pearvideo.bean.NodeInfo;
 import com.qf.pearvideo.callback.PearStringCallBack;
 import com.qf.pearvideo.dao.impl.PearDao;
-import com.qf.pearvideo.fragment.IIndexMainFragment;
+import com.qf.pearvideo.fragment.InterFaces.IIndexMainFragment;
 import com.qf.pearvideo.present.IIndexMainInfoPresenter;
 
 import org.json.JSONArray;

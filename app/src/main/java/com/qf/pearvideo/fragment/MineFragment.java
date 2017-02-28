@@ -1,5 +1,7 @@
 package com.qf.pearvideo.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.qf.pearvideo.R;
+import com.qf.pearvideo.activity.BrowsingHistoryActivity;
+import com.qf.pearvideo.activity.MyMessageActivity;
+import com.qf.pearvideo.activity.SubscriptionManagementActivity;
 
 /**
  * Created by Administrator on 2017/2/17.
@@ -24,12 +29,19 @@ public class MineFragment extends Fragment{
     TextView changePassword;//修改密码
     TextView myInterest;//我的兴趣
     TextView quit;//退出登录
+    Context context;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view =inflater.inflate(R.layout.activity_mine,null);
         init(view);
         return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
     }
 
     private void init(View view) {
@@ -70,14 +82,17 @@ public class MineFragment extends Fragment{
                 case R.id.myCollection://我的收藏
                     break;
                 case R.id.mySubscription://我的订阅
+                    startActivity(new Intent(context, SubscriptionManagementActivity.class));
                     break;
                 case R.id.browsingHistory://浏览历史
+                    startActivity(new Intent(context, BrowsingHistoryActivity.class));
                     break;
                 case R.id.videoRebellion://视频报料
                     break;
                 case R.id.myInterest://我的兴趣
                     break;
                 case R.id.myMessage://我的消息
+                    startActivity(new Intent(context, MyMessageActivity.class));
                     break;
                 case R.id.changePassword://修改密码
                     break;

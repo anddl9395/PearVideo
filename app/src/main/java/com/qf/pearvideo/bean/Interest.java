@@ -12,6 +12,8 @@ public class Interest {
     private String logoimg;//发视频者的头像地址
     private String duration;//视频时长
     private String nextUrl;//加载下一页的地址
+    private String sharePic;//视频播放没开始的时候的图片
+    private String shareUrl;//播放视频的地址
 
     public Interest(){
 
@@ -65,6 +67,22 @@ public class Interest {
         this.nextUrl = nextUrl;
     }
 
+    public String getShareUrl() {
+        return shareUrl;
+    }
+
+    public void setShareUrl(String shareUrl) {
+        this.shareUrl = shareUrl;
+    }
+
+    public String getSharePic() {
+        return sharePic;
+    }
+
+    public void setSharePic(String sharePic) {
+        this.sharePic = sharePic;
+    }
+
     @Override
     public String toString() {
         return "Interest{" +
@@ -74,6 +92,7 @@ public class Interest {
                 ", logoimg='" + logoimg + '\'' +
                 ", duration='" + duration + '\'' +
                 ", nextUrl='" + nextUrl + '\'' +
+                ", shareUrl='" + shareUrl + '\'' +
                 '}';
     }
 }
