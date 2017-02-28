@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".activity.MyMessageActivity">
+        <activity android:name=".activity.SubscriptionManagementActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,8 +29,8 @@
         <activity android:name=".activity.ForgetPwdActivity" />
         <activity android:name=".activity.BrowsingHistoryActivity" />
         <activity android:name=".activity.AllSortActivity" />
-        <!-- <activity android:name=".activity.MyMessageActivity"/> -->
-        <activity android:name=".activity.SubscriptionManagementActivity"></activity>
+        <activity android:name=".activity.MyMessageActivity"/>
+        <!--<activity android:name=".activity.SubscriptionManagementActivity"/>-->
     </application>
 
 </manifest>

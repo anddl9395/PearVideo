@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item android:state_checked="true"
-        android:drawable="@drawable/icon_me"></item>
+        android:drawable="@color/colorYellow"></item>
 
     <item android:state_checked="false"
-        android:drawable="@drawable/icon_men"></item>
+        android:drawable="@color/colorTray"></item>
 </selector>

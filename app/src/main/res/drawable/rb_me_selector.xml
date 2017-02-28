@@ -5,5 +5,5 @@
         android:drawable="@color/colorYellow"></item>
 
     <item android:state_checked="false"
-        android:drawable="#ccc"></item>
+        android:drawable="@color/colorTray"></item>
 </selector>

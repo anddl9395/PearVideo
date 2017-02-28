@@ -24,7 +24,7 @@ public class SubscriptionManagementRecyclerViewAdapter extends RecyclerView.Adap
 
     @Override
     public SubscriptionManagementRecyclerViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(context).inflate(subscription_managment_recyclerview_item,parent,false));
+        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.subscription_managment_recyclerview_item,parent,false));
         return holder;
     }
 

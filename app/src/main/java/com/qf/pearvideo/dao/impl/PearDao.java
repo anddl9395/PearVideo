@@ -187,6 +187,39 @@ public class PearDao implements IPearDao {
 
     }
 
+
+    /**
+     * 订阅管理的左侧的标签
+     * @param url
+     *
+     */
+    @Override
+    public void getSubscriptionTitle(String url, String cookie, final CallBack mCallBack) {
+        RequestParams mRequestParams = new RequestParams(url);
+        mRequestParams.addHeader("Cookie",cookie);
+        x.http().get(mRequestParams, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                mCallBack.getResult(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
     /**
      * 获取url内文件名称
      * @param urlPath

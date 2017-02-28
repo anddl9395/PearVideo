@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</LinearLayout>
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+    <com.qf.pearvideo.view.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/subscribeManagementIcon"
+        app:border_width="0.5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:border_color="@color/colorTray"
+        android:src="@mipmap/ic_launcher"/>
+    <LinearLayout
+        android:layout_toRightOf="@+id/subscribeManagementIcon"
+        android:layout_marginLeft="20dp"
+        android:layout_width="200dp"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/subscribeManagementTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTray"
+            android:textSize="12sp"
+            android:layout_margin="3dp"
+            android:text="标题"/>
+        <TextView
+            android:id="@+id/subscribeManagementContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTray"
+            android:layout_margin="3dp"
+            android:textSize="12sp"
+            android:text="内容"/>
+    </LinearLayout>
+        <TextView
+            android:id="@+id/subscriptionTextView"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:text="订阅"
+            android:textSize="12sp"
+            android:background="@drawable/paddingsub"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textColor="@color/colorTray"
+            android:layout_alignParentRight="true"/>
+</RelativeLayout>

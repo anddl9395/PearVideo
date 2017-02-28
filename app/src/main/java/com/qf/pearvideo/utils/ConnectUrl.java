@@ -12,6 +12,5 @@ public class ConnectUrl{
     public static String subcriptionUrl = "http://app.pearvideo.com/clt/jsp/v2/myOrderContList.jsp";//订阅页面的地址
     public static String indexOtherInfoUrl  = "http://app.pearvideo.com/clt/jsp/v2/getCategoryConts.jsp";//首页具体模块的地址
     public static String messageUrl ="http://app.pearvideo.com/clt/jsp/v2/getSysMsgList.jsp";//我的消息中系统消息的地址
-    public static String subscriptionMineUrl = "http://app.pearvideo.com/clt/jsp/v2/getNodes.jsp";//订阅栏目中”我的”,“最新”,”推荐”栏目接口
-    public static String subscriptionElseUrl = "http://app.pearvideo.com/clt/jsp/v2/getNodes.jsp";//订阅栏目中其他订阅接口
+    public static String subscriptionElseUrl = "http://app.pearvideo.com/clt/jsp/v2/domainList.jsp";//订阅栏目中其他订阅接口
 }

@@ -23,12 +23,13 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="订阅管理"
+            android:layout_marginRight="10dp"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"/>
         <ImageView
             android:id="@+id/subscribeManagementSearch"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@mipmap/icon_search"
             android:layout_marginRight="10dp"
             android:layout_centerInParent="true"
@@ -45,21 +46,11 @@
                 android:layout_height="match_parent"
                 >
             </ListView>
-
-        <fragment
+        <FrameLayout
+            android:id="@+id/subscriptionFrameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/subscribeFragmentIn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                >
-            </android.support.v7.widget.RecyclerView>
-        </fragment>
-
+        </FrameLayout>
     </LinearLayout>
-
-
 </LinearLayout>

@@ -17,4 +17,6 @@ public interface IPearDao {
     public void getIndexMainInfo(String url, String cookie, PearStringCallBack callBack);
 
     public void getIndexMainFile(String url, PearStringCallBack callBack);
+
+    public void getSubscriptionTitle(String url, String cookie,CallBack mCallBack);
 }
