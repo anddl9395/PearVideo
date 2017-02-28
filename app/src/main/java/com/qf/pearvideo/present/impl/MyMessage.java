@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.qf.pearvideo.bean.SystemMessage;
-import com.qf.pearvideo.callback.CallBack;
+import com.qf.pearvideo.callback.PearStringCallBack;
 import com.qf.pearvideo.dao.IPearDao;
 import com.qf.pearvideo.dao.impl.PearDao;
 import com.qf.pearvideo.fragment.IPushMessageFragment;
@@ -33,14 +33,14 @@ public class MyMessage implements IMyMessagep{
         this.mIPushMessageFragment = mIPushMessageFragment;
     }
 
-    CallBack mCallBack = new CallBack() {
+    PearStringCallBack mCallBack = new PearStringCallBack() {
         @Override
-        public void getResult(String result) {
+        public void doResult(String result, int tag) {
             if(result != null){
                 try {
                     JSONObject jsonObject = new JSONObject(result);
-                    String tag = jsonObject.getString("resultMsg");
-                    if("success".equals(tag)){
+                    String tagr = jsonObject.getString("resultMsg");
+                    if("success".equals(tagr)){
                         JSONArray msgList = jsonObject.getJSONArray("msgList");
                         int len = msgList.length();
                         SystemMessage mSystemMessage = null;

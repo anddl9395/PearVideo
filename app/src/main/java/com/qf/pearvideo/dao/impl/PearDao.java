@@ -177,42 +177,6 @@ public class PearDao implements IPearDao {
     }
 
     /**
-     * 获取首页内容
-     * @param url
-     * @param cookie
-     * @param callBack
-     */
-    @Override
-    public void getIndexMainInfo(String url, String cookie, final PearStringCallBack callBack) {
-        RequestParams requestParams = new RequestParams(url);
-        requestParams.addHeader("Cookie", cookie);
-
-        x.http().get(requestParams, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                if (result != null){
-                    callBack.doResult(result, 1);
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
-    }
-
-    /**
      * 下载首页的短视频
      * @param url
      * @param callBack
@@ -263,13 +227,13 @@ public class PearDao implements IPearDao {
      *
      */
     @Override
-    public void getSubscriptionTitle(String url, String cookie, final CallBack mCallBack) {
+    public void getSubscriptionTitle(String url, String cookie, final PearStringCallBack mCallBack) {
         RequestParams mRequestParams = new RequestParams(url);
         mRequestParams.addHeader("Cookie",cookie);
         x.http().get(mRequestParams, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                mCallBack.getResult(result);
+                mCallBack.doResult(result, 1);
             }
 
             @Override

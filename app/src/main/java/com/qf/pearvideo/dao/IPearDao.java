@@ -20,4 +20,9 @@ public interface IPearDao {
 
     //获取兴趣页信息
     public void getInterestInfo(String url, String cookie, PearStringCallBack callBack);
+
+    //获取首页文件
+    public void getIndexMainFile(String url, final PearStringCallBack callBack);
+
+    public void getSubscriptionTitle(String url, String cookie, PearStringCallBack mCallBack);
 }
