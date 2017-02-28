@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/24.
+ * recyclerView中Item中recyclerView的适配器
  */
 
 public class IndexItemRecyclerAdapter extends RecyclerView.Adapter<IndexItemRecyclerAdapter.ViewHolder>{

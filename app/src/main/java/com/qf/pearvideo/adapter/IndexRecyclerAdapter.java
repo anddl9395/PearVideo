@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/23.
+ * 总的recyclerView的适配器
  */
 
 public class IndexRecyclerAdapter extends RecyclerView.Adapter<IndexRecyclerAdapter.MyViewHolder> {

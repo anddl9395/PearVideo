@@ -5,15 +5,19 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.qf.pearvideo.R;
+import com.qf.pearvideo.adapter.IndexFragmentPagerAdapter;
 import com.qf.pearvideo.bean.Category;
 import com.qf.pearvideo.present.ITitleInfoPresenter;
 import com.qf.pearvideo.present.impl.TitleInfoPresenter;
@@ -26,13 +30,14 @@ import java.util.List;
  * Created by Administrator on 2017/2/17.
  */
 
-public class IndexFragment extends Fragment implements  IIndexFragment, RadioGroup.OnCheckedChangeListener{
+public class IndexFragment extends Fragment implements  IIndexFragment, RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener{
 
     private List<Category> dataTitleList = new ArrayList<>();//用于存放头部List集合
     private List<Fragment> fragmentList = new ArrayList<>();//用于存放所有ViewPager里面的内容
     private RadioGroup radioGroup;
     private Context context;
     private ViewPager viewPager;
+    private HorizontalScrollView hsv;  //滑动标题栏
     private ITitleInfoPresenter mITitleInfoPresenter;
 
     @Override
@@ -62,13 +67,21 @@ public class IndexFragment extends Fragment implements  IIndexFragment, RadioGro
         setListener();
     }
 
+    private void setAdapter(List<Fragment> fragmentList) {
+        FragmentManager fm = getFragmentManager();
+        IndexFragmentPagerAdapter mIndexFragmentPagerAdapter = new IndexFragmentPagerAdapter(fm, fragmentList);
+        viewPager.setAdapter(mIndexFragmentPagerAdapter);
+    }
+
     private void setListener() {
         radioGroup.setOnCheckedChangeListener(this);
+        viewPager.addOnPageChangeListener(this);
     }
 
     private void findView(View view) {
         radioGroup = (RadioGroup) view.findViewById(R.id.index_title_rg);
         viewPager = (ViewPager) view.findViewById(R.id.index_vp);
+        hsv = (HorizontalScrollView) view.findViewById(R.id.index_title);
     }
 
     /**
@@ -83,20 +96,26 @@ public class IndexFragment extends Fragment implements  IIndexFragment, RadioGro
         dataTitleList.clear();
         dataTitleList.addAll(list);
         int length = dataTitleList.size();
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i <= length; i++) {
             RadioButton radioButton = new RadioButton(context);
             //设置文字
-            radioButton.setText(dataTitleList.get(i).getName());
+            if(i == 0){
+                radioButton.setText("头条");
+            }else{
+                radioButton.setText(dataTitleList.get(i - 1).getName());
+            }
             //将RadioButton按钮样式隐藏
             radioButton.setButtonDrawable(android.R.color.transparent);
             //设置RadioButton颜色选择
             ColorStateList csl = ContextCompat.getColorStateList(context, R.color.index_rb);
             radioButton.setTextColor(csl);
             //设置宽和高以及边距
-            RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(40, 40);
-            params.setMargins(30, 0, 0, 0);
+            RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(70, 40);
+            if (i != 0){
+                params.setMargins(30, 0, 0, 0);
+            }
             //添加到radioGroup中
-            radioGroup.addView(radioButton, (i + 1), params);
+            radioGroup.addView(radioButton, i, params);
         }
 
         //获取数据以后加载Fragment
@@ -106,6 +125,7 @@ public class IndexFragment extends Fragment implements  IIndexFragment, RadioGro
     @Override
     public void createFragment() {
         if (dataTitleList != null && dataTitleList.size() != 0){
+            fragmentList.clear();
             fragmentList.add(new IndexMainFragment());
             int k = dataTitleList.size();
             for (int i = 0; i < k; i++) {
@@ -115,14 +135,40 @@ public class IndexFragment extends Fragment implements  IIndexFragment, RadioGro
                 mIndexOtherFragment.setArguments(bundle);
                 fragmentList.add(mIndexOtherFragment);//添加到集合中
             }
+            //设置适配器
+            setAdapter(fragmentList);
         }
     }
 
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-
+        for (int i = 0; i < group.getChildCount(); i++) {
+            RadioButton rb = (RadioButton) radioGroup.getChildAt(i);
+            if (rb.isChecked()){
+                viewPager.setCurrentItem(i);
+            }
+        }
     }
 
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        RadioButton rb = (RadioButton) radioGroup.getChildAt(position);
+        rb.setChecked(true);
+        onCheckedChanged(radioGroup, position);
+        float x = rb.getX();
+        hsv.smoothScrollTo((int)x - 150, 0);
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/2/27.
+ * 首页上头条循环播放视频的适配器
  */
 
 public class IndexItemPagerAdapter extends PagerAdapter {

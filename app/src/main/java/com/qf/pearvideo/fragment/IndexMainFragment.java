@@ -1,7 +1,6 @@
 package com.qf.pearvideo.fragment;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -12,16 +11,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.qf.pearvideo.R;
-import com.qf.pearvideo.adapter.IndexItemPagerAdapter;
+import com.qf.pearvideo.adapter.IndexFragmentPagerAdapter;
+import com.qf.pearvideo.adapter.IndexRecyclerAdapter;
 import com.qf.pearvideo.bean.Cont;
 import com.qf.pearvideo.bean.Node;
 import com.qf.pearvideo.present.IIndexMainInfoPresenter;
 import com.qf.pearvideo.present.impl.IndexMainInfoPresenter;
 import com.qf.pearvideo.utils.ConnectUrl;
+import com.qf.pearvideo.view.FullyLinearLayoutManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -34,11 +34,9 @@ import java.util.List;
 public class IndexMainFragment extends Fragment implements IIndexMainFragment, ViewPager.OnPageChangeListener {
 
     private ViewPager viewPager;            //首页大标题视频展示
-    private TextView tvTag;                 //推荐等标记
-    private TextView tvNameAndTime, tvTitle;//时间和名称的文本框， 以及标题文本框
     private RecyclerView recyclerView;      //展示不同小模块的控件
     private Context context;
-    private List<VideoView> mVideoViewList = new ArrayList<>(); //viewpager里面的video集合
+    private List<Fragment> fragmentPagerList = new ArrayList<>(); //ViewPager中播放视频的数据源
     private Node node; //头条的node
     private int lastPosition = 0;//记录上一次播放位置
 
@@ -73,9 +71,6 @@ public class IndexMainFragment extends Fragment implements IIndexMainFragment, V
 
     private void findView(View view) {
         viewPager = (ViewPager) view.findViewById(R.id.index_main_vp);
-        tvTag = (TextView) view.findViewById(R.id.index_main_tag);
-        tvNameAndTime = (TextView) view.findViewById(R.id.index_main_NameAndTime);
-        tvTitle = (TextView) view.findViewById(R.id.index_main_title);
         recyclerView = (RecyclerView) view.findViewById(R.id.index_main_recycler);
     }
 
@@ -83,41 +78,50 @@ public class IndexMainFragment extends Fragment implements IIndexMainFragment, V
     @Override
     public void getNodeList(List<Node> list) {
         int length = list.size();
+        //除头条外首页的其他数据源全部放这个集合中
+        List<Node> dataNodeList = new ArrayList<>();
+        fragmentPagerList.clear();
         for (int i = 0; i < length; i++) {
             if (i == 0){
                 //对头条进行设置
                 node = list.get(i);
                 List<Cont> contList = node.getContList();
                 int contLength = contList.size();
-                //设置viewpager指示标题
-                List<String> titleList = new ArrayList<>();
                 for (int j = 0; j < contLength; j++){
-                    final VideoView mVideoView = new VideoView(context);
-                    mVideoViewList.add(mVideoView);
-                    //设置准备好的监听
-                    mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                        @Override
-                        public void onPrepared(MediaPlayer mp) {
-                            mp.start();
-                        }
-                    });
-                    //设置播放完成的监听
-                    mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                        @Override
-                        public void onCompletion(MediaPlayer mp) {
-                            mVideoView.seekTo(0);
-                            mVideoView.resume();
-                            mVideoView.start();
-                        }
-                    });
-                    titleList.add("" + j + "-" + contLength);
+                    Cont cont = contList.get(j);
+                    //下载视频
+                    mIIndexMainInfoPresenter.getMainFile(cont.getVideoPath(), j);
+                    //设置Bundle
+                    Bundle bundle = new Bundle();
+                    bundle.putString("tag",cont.getLabel());        //设置首播等标记
+
+                    StringBuffer sBuff = new StringBuffer();
+                    sBuff.append(cont.getNodeInfo().getNodeName());
+                    sBuff.append(" | ");
+                    sBuff.append(cont.getDuration());
+
+                    bundle.putString("nameAndTime", sBuff.toString());//设置名称和时长
+                    bundle.putString("title", cont.getContName());    //设置标题
+                    String name = getFileName(cont.getVideoPath());
+                    bundle.putString("path", videoPath + File.separator + name);//设置播放地址
+
+                    IndexMainItemPagerFragment fragment = new IndexMainItemPagerFragment();
+                    fragment.setArguments(bundle);
+                    //添加到集合中
+                    fragmentPagerList.add(fragment);
                 }
-                IndexItemPagerAdapter pagerAdapter = new IndexItemPagerAdapter(context, mVideoViewList, titleList);
+                IndexFragmentPagerAdapter pagerAdapter = new IndexFragmentPagerAdapter(getFragmentManager(), fragmentPagerList);
                 viewPager.setAdapter(pagerAdapter);
                 viewPager.addOnPageChangeListener(this);
             }else {
                 //加载其他模块
+                dataNodeList.add(list.get(i));
             }
+            //给其他模块设置适配器
+            FullyLinearLayoutManager fullyLinearLayoutManager = new FullyLinearLayoutManager(context, FullyLinearLayoutManager.VERTICAL, false);
+            recyclerView.setLayoutManager(fullyLinearLayoutManager);
+            IndexRecyclerAdapter mIndexRecyclerAdapter = new IndexRecyclerAdapter(dataNodeList, context);
+            recyclerView.setAdapter(mIndexRecyclerAdapter);
         }
     }
 
@@ -125,7 +129,11 @@ public class IndexMainFragment extends Fragment implements IIndexMainFragment, V
     public void getFileSuccess(String path, int position) {
         //下载文件成功
         if (position == viewPager.getCurrentItem()){
-            mVideoViewList.get(position).setVideoPath(path);
+            IndexMainItemPagerFragment mainItemPagerFragment = (IndexMainItemPagerFragment) fragmentPagerList.get(position);
+            mainItemPagerFragment.videoView.setVideoPath(path);
+            if (!mainItemPagerFragment.videoView.isPlaying()){
+                mainItemPagerFragment.videoView.start();
+            }
         }
     }
 
@@ -138,41 +146,14 @@ public class IndexMainFragment extends Fragment implements IIndexMainFragment, V
     public void onPageSelected(int position) {
 
         if (node != null){
-            Cont cont = node.getContList().get(position);//获取具体模块内容
-            tvTitle.setText(cont.getContName());           //设置标题
-            StringBuffer sBuff = new StringBuffer();
-            sBuff.append(cont.getNodeInfo().getNodeName());
-            sBuff.append(" | ");
-            sBuff.append(cont.getDuration());
-            tvNameAndTime.setText(sBuff.toString());        //设置名字和时长
-            String tag = cont.getLabel();
-            if (tag != null && tag != ""){
-                tvTag.setText(tag);                         //设置推荐，首播等标记
-            }
-
-            VideoView mVideoView = mVideoViewList.get(lastPosition);
-            if (mVideoView != null){
-                if (mVideoView.isPlaying()){    //如果还在播放，则停止播放
-                    mVideoView.stopPlayback();
-                }
+            IndexMainItemPagerFragment mainItemPagerFragment = (IndexMainItemPagerFragment) fragmentPagerList.get(lastPosition);
+            if(mainItemPagerFragment.videoView != null){
+                if (mainItemPagerFragment.videoView.isPlaying())
+                    mainItemPagerFragment.videoView.stopPlayback();
             }
             lastPosition = position;  //记录当前播放位置
-            try{
-                //判断文件夹是否存在，不存在则创建文件夹
-                File file = new File(videoPath);
-                if (!file.exists()){
-                    file.mkdirs();
-                }
-                //判断文件夹中的缓存文件是否存在
-                String name = getFileName(cont.getVideoPath());
-                File videoFile = new File(file, name);
-                if (videoFile.exists()){
-                    mVideoView = mVideoViewList.get(position);
-                    mVideoView.setVideoPath(videoPath + File.separator + name);
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            VideoView mVideoView = ((IndexMainItemPagerFragment)fragmentPagerList.get(position)).videoView;
+            mVideoView.start();
         }
 
     }

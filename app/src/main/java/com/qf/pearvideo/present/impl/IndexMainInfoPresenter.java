@@ -2,6 +2,7 @@ package com.qf.pearvideo.present.impl;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.qf.pearvideo.bean.Cont;
 import com.qf.pearvideo.bean.Node;
@@ -65,7 +66,11 @@ public class IndexMainInfoPresenter implements IIndexMainInfoPresenter {
                                 cont.setContName(contJsonObj.getString("name"));
                                 cont.setPic(contJsonObj.getString("pic"));
                                 cont.setDuration(contJsonObj.getString("duration"));
-                                cont.setVideoPath(contJsonObj.getString("coverVideo"));
+
+                                //如果是头条，才有coverVideo
+                                if (nodeJsonObj.getString("nodeName").equals("头条")){
+                                    cont.setVideoPath(contJsonObj.getString("coverVideo"));
+                                }
 
                                 String labelDesc = contJsonObj.getString("cornerLabelDesc");
                                 if (labelDesc != null && !labelDesc.equals("")){
@@ -90,7 +95,8 @@ public class IndexMainInfoPresenter implements IIndexMainInfoPresenter {
                         mIIndexMainFragment.getNodeList(nodeList);
                     }
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    Log.e("=====","解析json异常" + e.getMessage());
+
                 }
             }else {
                 //文件下载成功

@@ -31,7 +31,7 @@ public class MyMessageActivity extends AppCompatActivity implements IMyMessage{
         setContentView(R.layout.activity_my_message);
         init();
         mIMyMessagep = new MyMessage(this,this);
-        mIMyMessagep.getMyMessagep(ConnectUrl.messageUrl);
+       // mIMyMessagep.getMyMessagep(ConnectUrl.messageUrl);
     }
 
     //实例化
