@@ -75,6 +75,9 @@ public class IndexItemRecyclerAdapter extends RecyclerView.Adapter<IndexItemRecy
                 .setUseMemCache(true)
                 .build();
         x.image().bind(holder.mImageView, cont.getPic(), options);
+
+        //给item设置点击事件
+        //待实现
     }
 
     @Override

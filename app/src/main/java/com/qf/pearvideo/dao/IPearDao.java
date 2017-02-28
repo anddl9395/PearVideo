@@ -13,5 +13,8 @@ public interface IPearDao {
     public void getTitleInfo(String url, PhoneInfo phoneInfo, PearStringCallBack callBack);
 
     public void getSystemMessage(String url, String cookie, CallBack mCallBack);
-    public void getIndexMainInfo(String url,String cookie, PearStringCallBack callBack);
+
+    public void getIndexMainInfo(String url, String cookie, PearStringCallBack callBack);
+
+    public void getIndexMainFile(String url, PearStringCallBack callBack);
 }

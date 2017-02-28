@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.qf.pearvideo.R;
 import com.qf.pearvideo.bean.Node;
+import com.qf.pearvideo.view.FullGridViewLayoutManager;
+import com.qf.pearvideo.view.FullyLinearLayoutManager;
 
 import java.util.List;
 
@@ -47,7 +49,40 @@ public class IndexRecyclerAdapter extends RecyclerView.Adapter<IndexRecyclerAdap
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        //给item设置数据
+        int  type = getItemViewType(position);
+        Node node = nodeList.get(position);
+        switch (type){
+            case TYPE_1://横屏布局
+                //设置标题
+                holder.tv_title.setText(node.getNodeName());
+                //给recyclerView设置适配器
+                FullyLinearLayoutManager fullyLinearLayoutManager = new FullyLinearLayoutManager(context, FullyLinearLayoutManager.HORIZONTAL, false);
+                holder.recyclerView.setLayoutManager(fullyLinearLayoutManager);
+                IndexItemRecyclerAdapter myAdapter = new IndexItemRecyclerAdapter(context, node.getContList(), IndexItemRecyclerAdapter.HORIZONTAL_TYPE);
+                holder.recyclerView.setAdapter(myAdapter);
+                //给标题上的那一栏设置点击事件
+                //待写
+                break;
+            case TYPE_2: //纵向布局
+                //设置标题
+                holder.tv_title.setText(node.getNodeName());
+                //给recyclerView设置适配器
+                FullGridViewLayoutManager fullGridViewLayoutManager = new FullGridViewLayoutManager(context, 2);
+                holder.recyclerView.setLayoutManager(fullGridViewLayoutManager);
+                IndexItemRecyclerAdapter myAdapter1 = new IndexItemRecyclerAdapter(context, node.getContList(), IndexItemRecyclerAdapter.VERTICAL_TYPE);
+                holder.recyclerView.setAdapter(myAdapter1);
+                //给标题栏设置点击事件
+                //待写
+                //底部刷新栏
+                if (node.getContList().size() < 6){
+                    holder.rlRefresh.setVisibility(View.GONE);//隐藏
+                }else {
+                    //设置刷新事件
+                    //代写
+                }
+                break;
+        }
     }
 
     @Override
@@ -57,7 +92,11 @@ public class IndexRecyclerAdapter extends RecyclerView.Adapter<IndexRecyclerAdap
 
     @Override
     public int getItemViewType(int position) {
-        return super.getItemViewType(position);
+        if (nodeList.get(position).getNodeName().equals("最新视频")){
+            return TYPE_1;
+        }else {
+            return TYPE_2;
+        }
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder{
