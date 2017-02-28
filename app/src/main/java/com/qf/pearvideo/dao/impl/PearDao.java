@@ -3,6 +3,7 @@ package com.qf.pearvideo.dao.impl;
 import android.util.Log;
 
 import com.qf.pearvideo.bean.PhoneInfo;
+import com.qf.pearvideo.callback.CallBack;
 import com.qf.pearvideo.callback.PearStringCallBack;
 import com.qf.pearvideo.dao.IPearDao;
 
@@ -19,8 +20,9 @@ import java.util.List;
  */
 
 public class PearDao implements IPearDao {
+
     /**
-     * 加载标题信息
+     * 首次加载
      * @param url
      * @param phoneInfo
      * @param callBack
@@ -66,60 +68,24 @@ public class PearDao implements IPearDao {
 
             }
         });
+
+
     }
 
     /**
-     * 获取首页主要内容
+     * 消息推送
      * @param url
-     * @param cookie
-     * @param callBack
+     * @param mCallBack
      */
     @Override
-    public void getIndexMainInfo(String url, String cookie, final PearStringCallBack callBack) {
-        RequestParams requestParams = new RequestParams(url);
-        requestParams.addHeader("Cookie", cookie);
+    public void getSystemMessage(String url, String cookie, final CallBack mCallBack) {
+        RequestParams mRequestParams = new RequestParams(url);
+        mRequestParams.addHeader("Cookie",cookie);
 
-        x.http().post(requestParams, new Callback.CommonCallback<String>() {
-
+        x.http().get(mRequestParams, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                if (result != null){
-                    callBack.doResult(result, 1);
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
-    }
-
-    /**
-     * 获取兴趣页面的信息
-     * @param url
-     * @param cookie
-     * @param callBack
-     */
-    @Override
-    public void getInterestInfo(String url, String cookie, PearStringCallBack callBack) {
-        RequestParams requestParams = new RequestParams(url);
-        requestParams.addHeader("Cookie",cookie);
-
-        x.http().get(requestParams, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-
+               mCallBack.getResult(result);
             }
 
             @Override

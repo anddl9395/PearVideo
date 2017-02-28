@@ -1,4 +1,4 @@
-package com.qf.pearvideo.fragment;
+package com.qf.pearvideo.fragment.InterFaces;
 
 import com.qf.pearvideo.bean.Node;
 
