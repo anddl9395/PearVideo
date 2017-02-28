@@ -2,14 +2,13 @@ package com.qf.pearvideo.present.impl;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.qf.pearvideo.bean.Category;
 import com.qf.pearvideo.bean.PhoneInfo;
 import com.qf.pearvideo.callback.PearStringCallBack;
 import com.qf.pearvideo.dao.IPearDao;
 import com.qf.pearvideo.dao.impl.PearDao;
-import com.qf.pearvideo.fragment.IIndexFragment;
+import com.qf.pearvideo.fragment.InterFaces.IIndexFragment;
 import com.qf.pearvideo.present.ITitleInfoPresenter;
 import com.qf.pearvideo.utils.GetPhoneInfo;
 

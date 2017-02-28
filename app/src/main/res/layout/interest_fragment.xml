@@ -22,7 +22,7 @@
         android:layout_below="@+id/interset_title"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:background="#fff"
+        android:background="#ccc"
         android:gravity="center"
         android:visibility="gone"
         >
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_frush"
-            android:textColor="#ccc"
+            android:textColor="#fff"
             android:textSize="15sp"
             />
     </LinearLayout>
@@ -39,23 +39,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/interest_mFrush"
+        android:layout_above="@+id/mMore"
         >
-        <ListView
-            android:id="@+id/mListView"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dividerHeight="2dp"
-            android:divider="#ccc"
+            android:layout_height="wrap_content"
             />
     </android.support.v4.widget.SwipeRefreshLayout>
     <LinearLayout
         android:id="@+id/mMore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/mSwipeRefreshLayout"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:background="#fff"
+        android:background="#ccc"
         android:gravity="center"
         android:visibility="gone"
         >
@@ -68,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_more"
-            android:textColor="#ccc"
+            android:textColor="#fff"
             android:textSize="15sp"
             android:layout_marginLeft="5dp"
             />

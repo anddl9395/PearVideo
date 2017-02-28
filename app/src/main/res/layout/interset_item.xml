@@ -2,18 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="310dp"
     android:orientation="vertical"
     android:background="#fff"
     >
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         >
         <SurfaceView
             android:id="@+id/mSurfaceView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
+            />
+        <ImageView
+            android:id="@+id/mImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
             />
         <ImageView
             android:id="@+id/interset_item_stop"
@@ -23,59 +29,84 @@
             android:layout_gravity="center"
             />
         <LinearLayout
-            android:id="@+id/mProgress"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:id="@+id/mLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="bottom"
+            android:layout_gravity="center"
+            android:background="#fff"
+            android:visibility="gone"
             >
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/icon_progress_start"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="30dp"
-                />
             <ProgressBar
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:layout_weight="1"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_gravity="center_vertical"
-                />
-            <TextView
-                android:id="@+id/interset_item_nowtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#ccc"
-                android:text="00:00/00:00"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center_vertical"
+                style="@android:style/Widget.ProgressBar.Small"
+                />
+            <TextView
+                android:id="@+id/mLoadText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#000"
+                android:text="正在缓冲..."
+                android:layout_marginLeft="5dp"
                 />
         </LinearLayout>
     </FrameLayout>
+    <LinearLayout
+        android:id="@+id/mProgress"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:background="#ccc"
+        android:visibility="visible"
+        >
+        <ImageView
+            android:id="@+id/progress_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_progress_stop"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            />
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/interset_item_nowtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:text="00:00/00:00"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
     <TextView
         android:id="@+id/interset_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我就是我"
         android:textColor="#000"
-        android:textSize="25dp"
+        android:textSize="18dp"
         android:padding="10dp"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal"
         >
-        <com.qf.pearvideo.view.CircleImageView
+        <ImageView
             android:id="@+id/interset_item_portarit"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="10dp"
-            android:src="@mipmap/ic_launcher"
             />
         <TextView
             android:id="@+id/interset_item_text"
@@ -96,4 +127,8 @@
             android:layout_marginLeft="20dp"
             />
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ccc"/>
 </LinearLayout>
