@@ -10,4 +10,6 @@ import java.util.List;
 
 public interface IIndexMainFragment {
     public void getNodeList(List<Node> list);
+
+    public void getFileSuccess(String path, int position);
 }

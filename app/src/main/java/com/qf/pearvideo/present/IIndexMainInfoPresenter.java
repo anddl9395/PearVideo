@@ -6,4 +6,6 @@ package com.qf.pearvideo.present;
 
 public interface IIndexMainInfoPresenter {
     public void getMainInfo(String url);
+
+    public void getMainFile(String url, int position);
 }

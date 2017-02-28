@@ -32,6 +32,7 @@
         android:textSize="13sp"
         />
     <TextView
+        android:id="@+id/index_title_item_nameAndTime"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_toRightOf="@+id/index_title_item_tag"

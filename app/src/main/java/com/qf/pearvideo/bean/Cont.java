@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by Administrator on 2017/2/23.
+ * 内容实体类
  */
 
 public class Cont implements Serializable{
