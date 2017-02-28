@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.qf.pearvideo.R;
 import com.qf.pearvideo.bean.Node;
+import com.qf.pearvideo.fragment.InterFaces.IIndexMainFragment;
 import com.qf.pearvideo.present.IIndexMainInfoPresenter;
 import com.qf.pearvideo.present.impl.IndexMainInfoPresenter;
 import com.qf.pearvideo.utils.ConnectUrl;

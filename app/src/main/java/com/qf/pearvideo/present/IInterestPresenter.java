@@ -5,4 +5,5 @@ package com.qf.pearvideo.present;
  */
 
 public interface IInterestPresenter {
+    public void getInterest(String url);
 }

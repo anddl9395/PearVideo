@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import com.qf.pearvideo.activity.IMyMessage;
 import com.qf.pearvideo.bean.SystemMessage;
-import com.qf.pearvideo.callback.CallBack;
+import com.qf.pearvideo.callback.PearStringCallBack;
 import com.qf.pearvideo.dao.IPearDao;
 import com.qf.pearvideo.dao.impl.PearDao;
 import com.qf.pearvideo.present.IMyMessagep;
@@ -33,21 +33,21 @@ public class MyMessage implements IMyMessagep{
         this.mIMyMessage = mIMyMessage;
     }
 
-    CallBack mCallBack = new CallBack() {
+    PearStringCallBack callBack = new PearStringCallBack() {
         @Override
-        public void getResult(String result) {
+        public void doResult(String result,int tag) {
             if(result != null){
                 try {
                     JSONObject jsonObject = new JSONObject(result);
-                    String tag = jsonObject.getString("resultMsg");
-                    if("success".equals(tag)){
+                    String info = jsonObject.getString("resultMsg");
+                    if("success".equals(info)){
                         JSONArray msgList = jsonObject.getJSONArray("msgList");
                         int len = msgList.length();
                         SystemMessage mSystemMessage = null;
                         for (int i = 0; i < len; i++) {
                             JSONObject mes = msgList.getJSONObject(i);
 
-                             mSystemMessage = new SystemMessage();
+                            mSystemMessage = new SystemMessage();
                             mSystemMessage.setID(mes.getString("id"));
                             mSystemMessage.setTitle(mes.getString("title"));
                             mSystemMessage.setDetail(mes.getString("detail"));
@@ -65,9 +65,8 @@ public class MyMessage implements IMyMessagep{
     };
     @Override
     public void getMyMessagep(String url) {
-        //sp = context.getSharedPreferences("PearVideoCookie", Context.MODE_PRIVATE);
-        //String cookie = sp.getString("cookie","err");
-        String cookie = "PEAR_PLATFORM=2;PEAR_UUID=867931028815395;JSESSIONID=E7A03EDFE4438F466ED722E381FC35C1;PV_APP=srv-pv-prod-portal3;__ads_session=4XyFTnww3Qj/OG4uCQA=";
-        mIPearDao.getSystemMessage(url,cookie,mCallBack);
+        sp = context.getSharedPreferences("PearVideoCookie", Context.MODE_PRIVATE);
+        String cookie = sp.getString("cookie","err");
+        mIPearDao.getSystemMessage(url,cookie,callBack);
     }
 }

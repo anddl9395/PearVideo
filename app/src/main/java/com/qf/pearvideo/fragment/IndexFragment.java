@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 
 import com.qf.pearvideo.R;
 import com.qf.pearvideo.bean.Category;
+import com.qf.pearvideo.fragment.InterFaces.IIndexFragment;
 import com.qf.pearvideo.present.ITitleInfoPresenter;
 import com.qf.pearvideo.present.impl.TitleInfoPresenter;
 import com.qf.pearvideo.utils.ConnectUrl;
@@ -26,7 +27,7 @@ import java.util.List;
  * Created by Administrator on 2017/2/17.
  */
 
-public class IndexFragment extends Fragment implements  IIndexFragment, RadioGroup.OnCheckedChangeListener{
+public class IndexFragment extends Fragment implements IIndexFragment, RadioGroup.OnCheckedChangeListener{
 
     private List<Category> dataTitleList = new ArrayList<>();//用于存放头部List集合
     private List<Fragment> fragmentList = new ArrayList<>();//用于存放所有ViewPager里面的内容
